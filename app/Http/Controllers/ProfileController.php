@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\UserDetails;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -56,5 +58,24 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+    public function navigator()
+    {
+        $exist = UserDetails::select('user_id')->where('user_id', '=', Auth::user()->id)->get();
+        //dd($exist);
+
+        if (Auth::user()->hasRole('user')) {
+            if (!isset($exist)) {
+                return view('user.complete-profile');
+            } else {
+                return view('welcome');
+            }
+        } else if (Auth::user()->hasRole('doner')) {
+            return view('doner.welcome');
+        } else if (Auth::user()->hasRole('seeker')) {
+            return view('seeker.welcome');
+        } else {
+            abort(404, 'Error not found!');
+        }
     }
 }

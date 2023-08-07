@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreign('user_id')->on('users')->references('id')->cascadeOnDelete();
             $table->boolean('is_needing');
             $table->dateTime('date');
+            $table->timestamps();
         });
     }
 

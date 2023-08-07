@@ -16,14 +16,12 @@ return new class extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->foreignId('user_id');
             $table->foreign('user_id')->on('users')->references('id')->cascadeOnDelete();
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('full_name');
             $table->string('blood_type');
             $table->text('location');
             $table->string('additional_phone_number')->nullable();
-            $table->string('facebook_url')->nullable();
             $table->string('whatsapp_link')->nullable();
-            $table->string('telegram_link')->nullable();
+            $table->timestamps();
         });
     }
 

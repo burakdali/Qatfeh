@@ -3,6 +3,8 @@
 use App\Http\Controllers\DonerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeekerController;
+use App\Http\Controllers\UserDetailsController;
+use App\Models\UserDetails;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +26,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [ProfileController::class, ''])->name('');
+    Route::get('/', [ProfileController::class, 'navigator'])->name('navigator');
+    Route::post('/addUserDetails', [UserDetailsController::class, 'create'])->name('create');
     Route::get('/become-a-doner', [DonerController::class, 'index'])->name('index');
     Route::get('/seeking-for-blood', [SeekerController::class, 'index'])->name('index');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

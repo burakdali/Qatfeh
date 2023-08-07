@@ -14,13 +14,14 @@
                     <div class="row">
                         <div class="col-2"></div>
                         <div class="col-8 border border-success mt-2">
-                            <form action="/submit-profile" method="POST">
+                            <form action="/addUserDetails" method="POST">
+                                @csrf
                                 <div class="row g-3 align-items-center m-2">
                                     <div class="col-auto ">
                                         <label for="fullName" class="col-form-label">Your Fullname:</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="text" id="fullName" class="form-control" aria-describedby="fullNameHelpInline">
+                                        <input type="text" name="full_name" id="fullName" class="form-control" aria-describedby="fullNameHelpInline">
                                     </div>
                                     <div class="col-auto">
                                         <span id="fullNameHelpInline" class="form-text">
@@ -32,16 +33,16 @@
                                     <div class="col-auto">
                                         <label for="form-select" class="col-form-label">Blood Type:</label>
                                     </div>
-                                    <select class="form-select w-50 p-3 d-inline m-4" name="form-select" aria-label="Default select example">
+                                    <select class="form-select w-50 p-3 d-inline m-4" name="blood_type" aria-label="Default select example">
                                         <option selected>Select your blood type</option>
-                                        <option value="1">A+</option>
-                                        <option value="2">B+</option>
-                                        <option value="3">AB+</option>
-                                        <option value="3">O+</option>
-                                        <option value="1">A-</option>
-                                        <option value="2">B-</option>
-                                        <option value="3">AB-</option>
-                                        <option value="3">O-</option>
+                                        <option value="A+">A+</option>
+                                        <option value="B+">B+</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="O+">O+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O-">O-</option>
                                     </select>
                                 </div>
 
@@ -49,22 +50,22 @@
                                     <div class="col-auto">
                                         <label for="form-select" class="col-form-label">Location:</label>
                                     </div>
-                                    <select class="form-select w-50 p-3 d-inline m-4" name="form-select" aria-label="Default select example">
+                                    <select class="form-select w-50 p-3 d-inline m-4" name="location" aria-label="Default select example">
                                         <option selected>Select your Location</option>
-                                        <option value="1">Latakia</option>
-                                        <option value="2">Tartus</option>
-                                        <option value="3">Homs</option>
-                                        <option value="3">Hamah</option>
-                                        <option value="1">Idlib</option>
-                                        <option value="2">Aleppo</option>
-                                        <option value="3">Al-Raqah</option>
-                                        <option value="3">Al-Hasakah</option>
-                                        <option value="3">Al-Qameshli</option>
-                                        <option value="3">Der el Zor</option>
-                                        <option value="3">Damascus</option>
-                                        <option value="3">Dara'a</option>
-                                        <option value="3">Al-swayda'a</option>
-                                        <option value="3">Al-Qunaytra</option>
+                                        <option value="Latakia">Latakia</option>
+                                        <option value="Tartus">Tartus</option>
+                                        <option value="Homs">Homs</option>
+                                        <option value="Hamah">Hamah</option>
+                                        <option value="Idlib">Idlib</option>
+                                        <option value="Aleppo">Aleppo</option>
+                                        <option value="Al-Raqah">Al-Raqah</option>
+                                        <option value="Al-Hasakah">Al-Hasakah</option>
+                                        <option value="Al-Qameshli">Al-Qameshli</option>
+                                        <option value="Der el-Zor">Der el-Zor</option>
+                                        <option value="Damascus">Damascus</option>
+                                        <option value="Dara'a">Dara'a</option>
+                                        <option value="Al-swayda'a">Al-swayda'a</option>
+                                        <option value="Al-Qunaytra">Al-Qunaytra</option>
                                     </select>
                                 </div>
 
@@ -73,7 +74,7 @@
                                         <label for="phoneNumber" class="col-form-label">Additional Phone number:</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="text" id="phoneNumber" class="form-control" aria-describedby="phoneNumberHelpInline">
+                                        <input type="text" name="additional_phone_number" id="phoneNumber" class="form-control" aria-describedby="phoneNumberHelpInline">
                                     </div>
                                     <div class="col-auto">
                                         <span id="phoneNumberHelpInline" class="form-text">
@@ -86,7 +87,7 @@
                                         <label for="whatsappLink" class="col-form-label">whatsapp Link:</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="text" id="whatsappLink" class="form-control" aria-describedby="whatsappLinkHelpInline">
+                                        <input type="text" name="whatsapp_link" id=" whatsappLink" class="form-control" aria-describedby="whatsappLinkHelpInline">
                                     </div>
                                     <div class="col-auto">
                                         <span id="whatsappLinkHelpInline" class="form-text">

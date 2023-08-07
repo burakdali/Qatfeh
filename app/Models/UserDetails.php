@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class UserDetails extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'full_name',
+        'blood_type',
+        'location',
+        'additional_phone_number',
+        'whatsapp_link',
+    ];
 }

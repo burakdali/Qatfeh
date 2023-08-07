@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('inventories', function (Blueprint $table) {
             $table->string('blood_type');
             $table->integer('available_amount');
+            $table->timestamps();
         });
     }
 
