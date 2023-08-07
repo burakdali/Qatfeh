@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Doner extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'is_available',
+        'date',
+    ];
 }

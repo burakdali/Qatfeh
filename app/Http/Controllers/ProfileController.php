@@ -71,7 +71,7 @@ class ProfileController extends Controller
                 return view('welcome');
             }
         } else if (Auth::user()->hasRole('doner')) {
-            return view('doner.welcome');
+            return view('doner.waiting-page');
         } else if (Auth::user()->hasRole('seeker')) {
             return view('seeker.welcome');
         } else {
