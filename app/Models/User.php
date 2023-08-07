@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -44,4 +46,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    function doner(): HasOne
+    {
+        return $this->hasOne(Doner::class);
+    }
+    function seeker(): HasOne
+    {
+        return $this->hasOne(Seeker::class);
+    }
+    function userDetails(): HasOne
+    {
+        return $this->hasOne(UserDetails::class);
+    }
+    function transactionAsDoner(): HasMany
+    {
+        return $this->hasMany(Transactions::class, 'donor_id');
+    }
+    function transactionAsSeeker(): HasMany
+    {
+        return $this->hasMany(Transactions::class, 'seeker_id');
+    }
 }
