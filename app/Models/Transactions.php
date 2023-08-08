@@ -17,4 +17,11 @@ class Transactions extends Model
     {
         return $this->belongsTo(User::class, 'donor_id');
     }
+    protected $fillable = [
+        'doner_id',
+        'seeker_id',
+        'scheduled_date',
+        'donation_date',
+        'is_done'
+    ];
 }

@@ -77,7 +77,7 @@ class ProfileController extends Controller
             return view('seeker.welcome');
         } else if (Auth::user()->hasRole('admin')) {
             $transactions = Transactions::all();
-            return view('admin.dashboard')->with('Transactions', $transactions);
+            return view('admin.dashboard')->with('transactions', $transactions);
         } else {
             abort(404, 'Error not found!');
         }

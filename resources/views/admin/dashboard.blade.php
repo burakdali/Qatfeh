@@ -20,14 +20,16 @@
                                 </tr>
                             </thead>
                             <tbody id="myTable">
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-
-                                    </td>
-                                </tr>
+                                <?php foreach ($transactions as $index) : ?>
+                                    <tr>
+                                        <td>{{$index->doner_id}}</td>
+                                        <td>{{$index->seeker_id}}</td>
+                                        <td>{{$index->donation_date}}</td>
+                                        <td>
+                                            {{$index->is_done}}
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
