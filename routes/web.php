@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/become-a-doner', [DonerController::class, 'index'])->name('index');
     Route::post('/confirm-doner', [DonerController::class, 'create'])->name('create');
     Route::get('/seeking-for-blood', [SeekerController::class, 'index'])->name('index');
+    Route::post('/search-for-donators', [SeekerController::class, 'searchForDonators']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

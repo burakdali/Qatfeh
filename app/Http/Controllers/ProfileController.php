@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Transactions;
 use App\Models\UserDetails;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -62,7 +63,7 @@ class ProfileController extends Controller
     public function navigator()
     {
         $exist = UserDetails::select('user_id')->where('user_id', '=', Auth::user()->id)->get();
-        //dd($exist);
+        // dd($exist);
 
         if (Auth::user()->hasRole('user')) {
             if (!isset($exist)) {
@@ -74,6 +75,9 @@ class ProfileController extends Controller
             return view('doner.waiting-page');
         } else if (Auth::user()->hasRole('seeker')) {
             return view('seeker.welcome');
+        } else if (Auth::user()->hasRole('admin')) {
+            $transactions = Transactions::all();
+            return view('admin.dashboard')->with('Transactions', $transactions);
         } else {
             abort(404, 'Error not found!');
         }
